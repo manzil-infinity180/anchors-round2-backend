@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const allRouter = require("./router/allRouter");
+const studentRoute = require("./router/studentRoute");
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const cors = require('cors');
@@ -35,6 +36,8 @@ app.get("/message", (req, res) => {
   });
 
 app.use('/api/v1',allRouter);
+app.use('/user',studentRoute);
+
 app.get('/',(req,res)=>{
     res.send("Heellooo!!!!");
 })
